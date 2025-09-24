@@ -7,3 +7,6 @@ Hiii this is my first github, hehe just kidding
 
 ## 📂 Struktur Folder
 Wleowleowleoo
+
+## Welcome to My Channel HEHEHEE
+My Name Farel Maulanaa
