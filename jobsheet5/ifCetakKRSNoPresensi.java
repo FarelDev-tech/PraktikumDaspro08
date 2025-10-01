@@ -15,5 +15,7 @@ public class ifCetakKRSNoPresensi {
             System.out.println("Pembayaran UKT belum lunas.");
             System.out.println("Silahkan lunasi UKT terlebih dahulu sebelum mencetak KRS.");
         }
+
+        sc.close();
     }
 }
