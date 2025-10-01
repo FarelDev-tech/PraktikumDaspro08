@@ -15,6 +15,7 @@ public class ifCetakKRS08 {
             System.out.println("Registrasi ditolak. Silakan lunasi UKT terlebih dahulu");
         }
 
+        // Tugas 1
         String pesan = (uktLunas) ? 
                 "Pembayaran UKT sudah lunas.\nSilahkan cetak KRS dan minta tanda tangan DPA"
                 : "Registrasi ditolak. Silakan lunasi UKT terlebih dahulu";
