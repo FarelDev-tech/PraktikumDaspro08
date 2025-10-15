@@ -46,10 +46,8 @@ public class StudiKasus3 {
         // (Hanya jika karyawan sudah memenuhi syarat untuk mendapatkan bonus berdasarkan kinerja dan lama bekerja)
         if (statusSertifikasi && bonus > 0) {
             bonus += 500000;
-        } else {
-            bonus = 0;
-        }
-
+        } 
+        
         // Menampilkan nilai kinerja, lama bekerja, gaji pokok, status sertifikasi, dan total bonus yang diterima
         System.out.println("Hasil Perhitungan Bonus Karyawan");
         System.out.println("--------------------------------");
