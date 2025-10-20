@@ -6,7 +6,7 @@
         public static void main(String[] args) {
             Scanner sc = new Scanner(System.in);
 
-            String nama, nilaiHuruf, status1, status2, statusSemester; 
+            String nama, nilaiHuruf1, status1, status2, statusSemester, nilaiHuruf2; 
             long nim; // Memakai long karena NIM bisa lebih dari 10 digit
             int uts1, uas1, tugas1, uts2, uas2, tugas2;
             double nilaiAkhir1, nilaiAkhir2, rataRata;
@@ -43,40 +43,40 @@
 
             // Menentukan nilai huruf untuk mata kuliah 1
             if (nilaiAkhir1 > 80 && nilaiAkhir1 <= 100) {
-                nilaiHuruf = "A";
+                nilaiHuruf1 = "A";
             } else if (nilaiAkhir1 > 73 && nilaiAkhir1 <= 80) {
-                nilaiHuruf = "B+";
+                nilaiHuruf1 = "B+";
             } else if (nilaiAkhir1 > 65 && nilaiAkhir1 <= 73) {
-                nilaiHuruf = "B";
+                nilaiHuruf1 = "B";
             } else if (nilaiAkhir1 > 60 && nilaiAkhir1 <= 65) {
-                nilaiHuruf = "C+";
+                nilaiHuruf1 = "C+";
             } else if (nilaiAkhir1 > 50 && nilaiAkhir1 <= 60) {
-                nilaiHuruf = "C";
+                nilaiHuruf1 = "C";
             } else if (nilaiAkhir1 > 39 && nilaiAkhir1 <= 50) {
-                nilaiHuruf = "D";
+                nilaiHuruf1 = "D";
             } else if (nilaiAkhir1 >= 0 && nilaiAkhir1 <= 39) {
-                nilaiHuruf = "E";
+                nilaiHuruf1 = "E";
             } else {
-                nilaiHuruf = "Tidak Valid";
+                nilaiHuruf1 = "Tidak Valid";
             }
 
             // Menentukan nilai huruf untuk mata kuliah 2
             if (nilaiAkhir2 > 80 && nilaiAkhir2 <= 100) {
-                nilaiHuruf = "A";
+                nilaiHuruf2 = "A";
             } else if (nilaiAkhir2 > 73 && nilaiAkhir2 <= 80) {
-                nilaiHuruf = "B+";
+                nilaiHuruf2 = "B+";
             } else if (nilaiAkhir2 > 65 && nilaiAkhir2 <= 73) {
-                nilaiHuruf = "B";
+                nilaiHuruf2 = "B";
             } else if (nilaiAkhir2 > 60 && nilaiAkhir2 <= 65) {
-                nilaiHuruf = "C+";
+                nilaiHuruf2 = "C+";
             } else if (nilaiAkhir2 > 50 && nilaiAkhir2 <= 60) {
-                nilaiHuruf = "C";
+                nilaiHuruf2 = "C";
             } else if (nilaiAkhir2 > 39 && nilaiAkhir2 <= 50) {
-                nilaiHuruf = "D";
+                nilaiHuruf2 = "D";
             } else if (nilaiAkhir2 >= 0 && nilaiAkhir2 <= 39) {
-                nilaiHuruf = "E";
+                nilaiHuruf2 = "E";
             } else {
-                nilaiHuruf = "Tidak Valid";
+                nilaiHuruf2 = "Tidak Valid";
             }
 
             // Menentukan status lulus/tidak lulus untuk masing-masing mata kuliah
@@ -115,10 +115,9 @@
             System.out.println("Mata Kuliah\t\t\tUTS\tUAS\tTugas\tNilai Akhir\tNilai Huruf\tStatus"); 
             System.out.println("-------------------------------------------------------------------------------------------------------");
             // Menggunakan format untuk menampilkan tabel (%d untuk integer, %.2f untuk float dengan 2 desimal, %s untuk string, \t untuk tab)
-            System.out.printf("Algoritma dan Pemrograman\t%d\t%d\t%d\t%.2f\t\t%s\t\t%s\n", uts1, uas1, tugas1, nilaiAkhir1, nilaiHuruf,status1);
-            System.out.printf("Struktur Data\t\t\t%d\t%d\t%d\t%.2f\t\t%s\t\t%s\n", uts2, uas2, tugas2, nilaiAkhir2, nilaiHuruf,status2);
+            System.out.printf("Algoritma dan Pemrograman\t%d\t%d\t%d\t%.2f\t\t%s\t\t%s\n", uts1, uas1, tugas1, nilaiAkhir1, nilaiHuruf1,status1);
+            System.out.printf("Struktur Data\t\t\t%d\t%d\t%d\t%.2f\t\t%s\t\t%s\n", uts2, uas2, tugas2, nilaiAkhir2, nilaiHuruf2,status2);
             System.out.printf("Rata-Rata Nilai Akhir: %.2f", rataRata);
-            // \n untuk pindah baris
-            System.out.println("\nStatus Kelulusan Semester: " + statusSemester);
+            System.out.print("Status Kelulusan Semester: " + statusSemester);
         }
     }
