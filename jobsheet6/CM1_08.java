@@ -6,10 +6,10 @@
         public static void main(String[] args) {
             Scanner sc = new Scanner(System.in);
 
-            String nama, nilaiHuruf1, status1, status2, statusSemester, nilaiHuruf2; 
+            String nama, nilaiHuruf1, nilaiHuruf2, nilaiHuruf3, status1, status2, status3, statusSemester; 
             long nim; // Memakai long karena NIM bisa lebih dari 10 digit
-            int uts1, uas1, tugas1, uts2, uas2, tugas2;
-            double nilaiAkhir1, nilaiAkhir2, rataRata;
+            int uts1, uas1, tugas1, uts2, uas2, tugas2, uts3, uas3, tugas3;
+            double nilaiAkhir1, nilaiAkhir2, nilaiAkhir3, rataRata;
 
             System.out.println("Status Mahasiswa");
             System.out.print("Masukkan nama: ");
@@ -26,6 +26,17 @@
             System.out.print("Masukkan nilai Tugas: ");
             tugas1 = sc.nextInt();
 
+            if (uts1 < 0 || uts1 > 100) {
+                System.out.println("Nilai UTS tidak valid. Harus antara 0-100.");
+                return; // Menghentikan eksekusi
+            } else if (uas1 < 0 || uas1 > 100) {
+                System.out.println("Nilai UAS tidak valid. Harus antara 0-100.");
+                return;
+            } else if (tugas1 < 0 || tugas1 > 100) {
+                System.out.println("Nilai Tugas tidak valid. Harus antara 0-100.");
+                return;
+            }
+
             // Menghitung nilai akhir mata kuliah 1
             nilaiAkhir1 = (0.3 * uts1) + (0.4 * uas1) + (0.3 * tugas1);
 
@@ -38,8 +49,42 @@
             System.out.print("Masukkan nilai Tugas: ");
             tugas2 = sc.nextInt();
 
+            if (uts2 < 0 || uts2 > 100) {
+                System.out.println("Nilai UTS tidak valid. Harus antara 0-100.");
+                return;
+            } else if (uas2 < 0 || uas2 > 100) {
+                System.out.println("Nilai UAS tidak valid. Harus antara 0-100.");
+                return;
+            } else if (tugas2 < 0 || tugas2 > 100) {
+                System.out.println("Nilai Tugas tidak valid. Harus antara 0-100.");
+                return;
+            }
+
             // Menghitung nilai akhir mata kuliah 2
             nilaiAkhir2 = (0.3 * uts2) + (0.4 * uas2) + (0.3 * tugas2);
+
+            // Memasukkan nilai mata kuliah 3
+            System.out.println("Mata kuliah 3: UI/UX");
+            System.out.print("Masukkan nilai UTS: ");
+            uts3 = sc.nextInt();
+            System.out.print("Masukkan nilai UAS: ");
+            uas3 = sc.nextInt();
+            System.out.print("Masukkan nilai Tugas: ");
+            tugas3 = sc.nextInt();
+
+            if (uts3 < 0 || uts3 > 100) {
+                System.out.println("Nilai UTS tidak valid. Harus antara 0-100.");
+                return;
+            } else if (uas3 < 0 || uas3 > 100) {
+                System.out.println("Nilai UAS tidak valid. Harus antara 0-100.");
+                return;
+            } else if (tugas3 < 0 || tugas3 > 100) {
+                System.out.println("Nilai Tugas tidak valid. Harus antara 0-100.");
+                return;
+            }
+
+            // Menghitung nilai akhir mata kuliah 3
+            nilaiAkhir3 = (0.3 * uts3) + (0.4 * uas3) + (0.3 * tugas3);
 
             // Menentukan nilai huruf untuk mata kuliah 1
             if (nilaiAkhir1 > 80 && nilaiAkhir1 <= 100) {
@@ -79,6 +124,25 @@
                 nilaiHuruf2 = "Tidak Valid";
             }
 
+            // Menentukan nilai huruf untuk mata kuliah 3
+            if (nilaiAkhir3 > 80 && nilaiAkhir3 <= 100) {
+                nilaiHuruf3 = "A";
+            } else if (nilaiAkhir3 > 73 && nilaiAkhir3 <= 80) {
+                nilaiHuruf3 = "B+";
+            } else if (nilaiAkhir3 > 65 && nilaiAkhir3 <= 73) {
+                nilaiHuruf3 = "B";
+            } else if (nilaiAkhir3 > 60 && nilaiAkhir3 <= 65) {
+                nilaiHuruf3 = "C+";
+            } else if (nilaiAkhir3 > 50 && nilaiAkhir3 <= 60) {
+                nilaiHuruf3 = "C";
+            } else if (nilaiAkhir3 > 39 && nilaiAkhir3 <= 50) {
+                nilaiHuruf3 = "D";
+            } else if (nilaiAkhir3 >= 0 && nilaiAkhir3 <= 39) {
+                nilaiHuruf3 = "E";
+            } else {
+                nilaiHuruf3 = "Tidak Valid";
+            }
+
             // Menentukan status lulus/tidak lulus untuk masing-masing mata kuliah
             if (nilaiAkhir1 >= 60) {
                 status1 = "Lulus";
@@ -92,13 +156,19 @@
                 status2 = "Tidak Lulus";
             }
 
-            // Menghitung rata-rata nilai akhir untuk menentukan status kelulusan semester
-            rataRata = (nilaiAkhir1 + nilaiAkhir2) / 2;
+            if (nilaiAkhir3 >= 60) {
+                status3 = "Lulus";
+            } else {
+                status3 = "Tidak Lulus";
+            }
 
-            // Menentukan status kelulusan semester berdasarkan 2 kriteria
+            // Menghitung rata-rata nilai akhir untuk menentukan status kelulusan semester
+            rataRata = (nilaiAkhir1 + nilaiAkhir2 + nilaiAkhir3) / 3;
+
+            // Menentukan status kelulusan semester berdasarkan 3 kriteria
             if (rataRata >= 70) {
                 // Kedua mata kuliah harus lulus
-                if (status1.equals("Lulus") && status2.equals("Lulus")) {
+                if (status1.equals("Lulus") && status2.equals("Lulus") && status3.equals("Lulus")) {
                     statusSemester = "LULUS";
                 } else {
                     statusSemester = "TIDAK LULUS (ADA MATA KULIAH TIDAK LULUS)";
@@ -117,7 +187,9 @@
             // Menggunakan format untuk menampilkan tabel (%d untuk integer, %.2f untuk float dengan 2 desimal, %s untuk string, \t untuk tab)
             System.out.printf("Algoritma dan Pemrograman\t%d\t%d\t%d\t%.2f\t\t%s\t\t%s\n", uts1, uas1, tugas1, nilaiAkhir1, nilaiHuruf1,status1);
             System.out.printf("Struktur Data\t\t\t%d\t%d\t%d\t%.2f\t\t%s\t\t%s\n", uts2, uas2, tugas2, nilaiAkhir2, nilaiHuruf2,status2);
-            System.out.printf("Rata-Rata Nilai Akhir: %.2f", rataRata);
-            System.out.print("Status Kelulusan Semester: " + statusSemester);
+            System.out.printf("UI/UX\t\t\t\t%d\t%d\t%d\t%.2f\t\t%s\t\t%s\n", uts3, uas3, tugas3, nilaiAkhir3, nilaiHuruf3,status3);
+            System.out.println("-------------------------------------------------------------------------------------------------------");
+            System.out.printf("Rata-Rata Nilai Akhir: %.2f\n", rataRata);
+            System.out.println("Status Kelulusan Semester: " + statusSemester);
         }
     }
